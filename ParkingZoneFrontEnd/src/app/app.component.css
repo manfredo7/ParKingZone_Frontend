@@ -1,0 +1,28 @@
+.mat-toolbar {
+    display: flex;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .large-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .large-icon {
+    font-size: 36px; /* Ajusta este tamaño según tus necesidades */
+    width: 40px; /* Asegúrate de que el ancho del ícono sea suficiente */
+    height: 36px; /* Asegúrate de que la altura del ícono sea suficiente */
+  }
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Ajusta este tamaño según tus necesidades */
+    height: 48px; /* Ajusta este tamaño según tus necesidades */
+  }
+
