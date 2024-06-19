@@ -1,0 +1,81 @@
+<div class="title-container"><h1 class="title">Registro de Pagos</h1>
+
+</div>
+
+<div class="container" style="text-align: center">
+  
+  <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+    
+        <mat-form-field *ngIf="edicion">
+            <mat-label>Codigo</mat-label>
+            <input matInput formControlName="codigo" readonly/>      
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+      <mat-label>Documento:</mat-label>
+      <input matInput placeholder="Documento" formControlName="documento" />
+      <mat-error *ngIf="form.get('documento')?.hasError('required')"
+        >El Documento es obligatorio.</mat-error>
+        </mat-form-field>
+   
+    <br />
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Monto:</mat-label>
+        <input matInput placeholder="Monto" formControlName="monto" />
+        <mat-error *ngIf="form.get('monto')?.hasError('required')"
+          >El monto es obligatorio.</mat-error>
+    </mat-form-field>
+    
+    <br />
+
+    <mat-form-field appearance="fill" class="example-full-width">
+        <input
+          matInput
+          placeholder="Fecha"
+          [matDatepicker]="picker"
+          formControlName="fecha"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+  
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+
+    <mat-form-field>
+        <mat-label>Hora</mat-label>
+        <input matInput type="datetime-local" placeholder="hora" formControlName="hora">
+        <mat-error *ngIf="form.get('hora')?.hasError('required')"
+        >La hora es obligatoria.</mat-error>
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width">
+        <mat-label>tpago</mat-label>
+        <mat-select formControlName="tpago">
+          <mat-option *ngFor="let c of listatpago" [value]="c.tipoPagoID">
+            {{c.descripcionTpago}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tpago')?.hasError('required')"
+        >El Tipo de pago es obligatorio.</mat-error>            
+      </mat-form-field>
+
+      <br />
+
+    <button mat-raised-button color="primary">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/pago">
+      Cancelar
+    </button>
+  </form>
+</div>
