@@ -1,2 +1,0 @@
-# ParKingZone_Frontend
-FrontEnd
